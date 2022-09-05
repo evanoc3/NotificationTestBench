@@ -151,6 +151,7 @@ class MainViewController: NSViewController {
     
     @objc private func authorizationCheckTimerCallback() {
         setButtonsEnabledIfAuthorizationRequested()
+        authorizationTabViewController?.authorizationCheckTimerCallback()
     }
     
     private func onDeliveredNotificationsChangedHandler(_ notification: Notification) {

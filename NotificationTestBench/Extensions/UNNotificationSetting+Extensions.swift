@@ -23,4 +23,17 @@ extension UNNotificationSetting {
                 return ""
         }
     }
+    
+    public var toEmoji: String {
+        switch self {
+            case .enabled:
+                return "✅"
+            case .disabled:
+                return "❌"
+            case .notSupported:
+                return "↩️"
+            @unknown default:
+                return ""
+        }
+    }
 }

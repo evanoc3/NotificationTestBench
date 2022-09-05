@@ -127,6 +127,12 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         NotificationCenter.default.post(name: NSNotification.deliveredNotificationsChanged, object: self)
     }
     
+    public func checkNotificationsAuthorization(callback: @escaping (UNNotificationSettings) -> Void) {
+        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { settings in
+            callback(settings)
+        })
+    }
+    
     
     // MARK: UNUserNotificationCenterDelegate
     
@@ -138,12 +144,4 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
         }
     }
     
-    
-    // MARK: Private Methods
-
-    private func checkNotificationsAuthorization(callback: @escaping (UNNotificationSettings) -> Void) {
-        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { settings in
-            callback(settings)
-        })
-    }
 }

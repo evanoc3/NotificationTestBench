@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="MainViewController" customModule="NotificationTestBench" customModuleProvider="target">
+            <connections>
+                <outlet property="clearNotificationsButton" destination="d6a-T4-66H" id="OuE-UF-faw"/>
+                <outlet property="placeholderTabViewItem" destination="YWe-sb-eIq" id="zv7-Gd-ePd"/>
+                <outlet property="preferencesButton" destination="b1C-9p-zay" id="QDC-jn-3Bs"/>
+                <outlet property="requestAuthorizationButton" destination="9i5-A4-ryS" id="eLS-6g-hVV"/>
+                <outlet property="sendNotificationButton" destination="mMP-CV-r7U" id="6eF-TN-kbC"/>
+                <outlet property="tabView" destination="7TC-1A-Ede" id="ihq-Vl-BHJ"/>
+                <outlet property="view" destination="25A-tu-G7J" id="pAH-7N-af2"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <view wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="25A-tu-G7J">
+            <rect key="frame" x="0.0" y="0.0" width="546" height="410"/>
+            <subviews>
+                <tabView translatesAutoresizingMaskIntoConstraints="NO" id="7TC-1A-Ede">
+                    <rect key="frame" x="13" y="50" width="520" height="354"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="338" id="G8c-RG-unV"/>
+                        <constraint firstAttribute="width" constant="506" id="fpk-UJ-0it"/>
+                    </constraints>
+                    <font key="font" metaFont="system"/>
+                    <tabViewItems>
+                        <tabViewItem label="Placeholder" identifier="placeholder" id="YWe-sb-eIq">
+                            <view key="view" id="fmh-ES-RhO">
+                                <rect key="frame" x="10" y="33" width="500" height="308"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </view>
+                        </tabViewItem>
+                    </tabViewItems>
+                </tabView>
+                <button toolTip="Open the notifications pane in System Preferences" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="b1C-9p-zay">
+                    <rect key="frame" x="13" y="13" width="126" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="20" id="Psg-5R-psd"/>
+                    </constraints>
+                    <buttonCell key="cell" type="push" title="Preferences" bezelStyle="rounded" image="gear" catalog="system" imagePosition="left" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="1Gb-Z5-NTj">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onPreferencesButtonClicked:" target="-2" id="097-hU-DUa"/>
+                    </connections>
+                </button>
+                <button toolTip="Deliver a notification" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mMP-CV-r7U">
+                    <rect key="frame" x="450" y="13" width="83" height="32"/>
+                    <buttonCell key="cell" type="push" title="Send" bezelStyle="rounded" image="paperplane" catalog="system" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Oe7-r5-ce1">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onSendNotificationsButtonClicked:" target="-2" id="MfF-cc-f3M"/>
+                    </connections>
+                </button>
+                <button toolTip="Clear delivered and pending notifications" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="d6a-T4-66H">
+                    <rect key="frame" x="369" y="13" width="83" height="32"/>
+                    <buttonCell key="cell" type="push" title="Clear" bezelStyle="rounded" image="trash" catalog="system" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="cHk-vf-xYj">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onClearNotificationsButtonClicked:" target="-2" id="BFO-a2-BuN"/>
+                    </connections>
+                </button>
+                <button toolTip="Request authorization for user notifications" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9i5-A4-ryS">
+                    <rect key="frame" x="266" y="13" width="105" height="32"/>
+                    <buttonCell key="cell" type="push" title="Request" bezelStyle="rounded" image="hammer" catalog="system" imagePosition="left" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="9T8-dt-Cf3">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onRequestAuthorizationButtonClicked:" target="-2" id="qoF-Yx-KtJ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="7TC-1A-Ede" secondAttribute="trailing" constant="20" symbolic="YES" id="1zh-Vc-Zfa"/>
+                <constraint firstItem="9i5-A4-ryS" firstAttribute="centerY" secondItem="d6a-T4-66H" secondAttribute="centerY" id="3pm-lg-fcg"/>
+                <constraint firstItem="b1C-9p-zay" firstAttribute="leading" secondItem="25A-tu-G7J" secondAttribute="leading" constant="20" symbolic="YES" id="6Pu-TK-NPD"/>
+                <constraint firstItem="mMP-CV-r7U" firstAttribute="top" secondItem="7TC-1A-Ede" secondAttribute="bottom" constant="20" symbolic="YES" id="DIj-at-c7W"/>
+                <constraint firstItem="b1C-9p-zay" firstAttribute="centerY" secondItem="9i5-A4-ryS" secondAttribute="centerY" id="FTh-rd-yAR"/>
+                <constraint firstItem="mMP-CV-r7U" firstAttribute="leading" secondItem="d6a-T4-66H" secondAttribute="trailing" constant="12" symbolic="YES" id="Ww9-x2-13U"/>
+                <constraint firstItem="d6a-T4-66H" firstAttribute="leading" secondItem="9i5-A4-ryS" secondAttribute="trailing" constant="12" symbolic="YES" id="X1T-KS-n7G"/>
+                <constraint firstAttribute="bottom" secondItem="mMP-CV-r7U" secondAttribute="bottom" constant="20" symbolic="YES" id="XzM-FL-tQE"/>
+                <constraint firstAttribute="trailing" secondItem="mMP-CV-r7U" secondAttribute="trailing" constant="20" symbolic="YES" id="hgh-eX-suw"/>
+                <constraint firstItem="d6a-T4-66H" firstAttribute="centerY" secondItem="mMP-CV-r7U" secondAttribute="centerY" id="jPS-xg-mB5"/>
+                <constraint firstItem="7TC-1A-Ede" firstAttribute="leading" secondItem="25A-tu-G7J" secondAttribute="leading" constant="20" symbolic="YES" id="tte-Za-LXb"/>
+                <constraint firstItem="7TC-1A-Ede" firstAttribute="top" secondItem="25A-tu-G7J" secondAttribute="top" constant="12" symbolic="YES" id="yBy-fW-Q8o"/>
+            </constraints>
+            <point key="canvasLocation" x="116" y="149"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="gear" catalog="system" width="17" height="17"/>
+        <image name="hammer" catalog="system" width="19" height="18"/>
+        <image name="paperplane" catalog="system" width="16" height="16"/>
+        <image name="trash" catalog="system" width="15" height="17"/>
+    </resources>
+</document>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AboutWindowController" customModule="NotificationTestBench" customModuleProvider="target">
+            <connections>
+                <outlet property="window" destination="QvC-M9-y7g" id="DOo-YS-wlU"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="About NotificationTestBench" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="320" height="124"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1792" height="1120"/>
+            <view key="contentView" wantsLayer="YES" id="EiT-Mj-1SZ">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="88"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="qLJ-XG-Slb">
+                        <rect key="frame" x="18" y="20" width="284" height="48"/>
+                        <textFieldCell key="cell" selectable="YES" id="7LT-kU-8r0">
+                            <font key="font" usesAppearanceFont="YES"/>
+                            <string key="title">NotificationTestBench is an developer tool to help with testing user notification delivered through the UNUserNotifications Apple API.</string>
+                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="qLJ-XG-Slb" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="20" symbolic="YES" id="2fW-Gy-IT5"/>
+                    <constraint firstAttribute="bottom" secondItem="qLJ-XG-Slb" secondAttribute="bottom" constant="20" symbolic="YES" id="DHP-8d-Ote"/>
+                    <constraint firstAttribute="trailing" secondItem="qLJ-XG-Slb" secondAttribute="trailing" constant="20" symbolic="YES" id="G2S-5t-RuP"/>
+                    <constraint firstItem="qLJ-XG-Slb" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="20" symbolic="YES" id="P4c-eb-HHD"/>
+                </constraints>
+            </view>
+            <point key="canvasLocation" x="36" y="71"/>
+        </window>
+    </objects>
+</document>

@@ -20,6 +20,9 @@
 		B62FF96628C6113200B921E2 /* NSUserInterfaceItemIdentifier+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62FF96528C6113200B921E2 /* NSUserInterfaceItemIdentifier+Extensions.swift */; };
 		B62FF96828C6150300B921E2 /* NSNotification+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B62FF96728C6150300B921E2 /* NSNotification+Extensions.swift */; };
 		B62FF96A28C6488300B921E2 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = B62FF96928C6488300B921E2 /* .gitignore */; };
+		B63895BE28C8A6D400B216C4 /* PresentationTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B63895BD28C8A6D400B216C4 /* PresentationTabView.xib */; };
+		B63895C028C8A70E00B216C4 /* PresentationTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63895BF28C8A70E00B216C4 /* PresentationTabViewController.swift */; };
+		B63895C428C8B01800B216C4 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63895C328C8B01800B216C4 /* Log.swift */; };
 		B6755EAB28BCC1EA00907087 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6755EAA28BCC1EA00907087 /* AppDelegate.swift */; };
 		B6755EAD28BCC1EC00907087 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6755EAC28BCC1EC00907087 /* Assets.xcassets */; };
 		B6755EB028BCC1EC00907087 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6755EAE28BCC1EC00907087 /* MainMenu.xib */; };
@@ -47,6 +50,9 @@
 		B62FF96528C6113200B921E2 /* NSUserInterfaceItemIdentifier+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSUserInterfaceItemIdentifier+Extensions.swift"; sourceTree = "<group>"; };
 		B62FF96728C6150300B921E2 /* NSNotification+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+Extensions.swift"; sourceTree = "<group>"; };
 		B62FF96928C6488300B921E2 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		B63895BD28C8A6D400B216C4 /* PresentationTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresentationTabView.xib; sourceTree = "<group>"; };
+		B63895BF28C8A70E00B216C4 /* PresentationTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationTabViewController.swift; sourceTree = "<group>"; };
+		B63895C328C8B01800B216C4 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		B6755EA728BCC1EA00907087 /* NotificationTestBench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotificationTestBench.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6755EAA28BCC1EA00907087 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6755EAC28BCC1EC00907087 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -97,6 +103,7 @@
 				B6755EAC28BCC1EC00907087 /* Assets.xcassets */,
 				B67562E728C1173D00907087 /* Extensions */,
 				B67562EA28C1347600907087 /* IntegerFormatter.swift */,
+				B63895C328C8B01800B216C4 /* Log.swift */,
 				B6755EAE28BCC1EC00907087 /* MainMenu.xib */,
 				B67562E528C1107E00907087 /* NotificationManager.swift */,
 				B6755EB128BCC1EC00907087 /* NotificationTestBench.entitlements */,
@@ -141,6 +148,8 @@
 				B62FF95F28C255EA00B921E2 /* MainViewController.swift */,
 				B6755EB928BCC54D00907087 /* MainWindow.xib */,
 				B6755EB728BCC31800907087 /* MainWindowController.swift */,
+				B63895BD28C8A6D400B216C4 /* PresentationTabView.xib */,
+				B63895BF28C8A70E00B216C4 /* PresentationTabViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -203,6 +212,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B63895BE28C8A6D400B216C4 /* PresentationTabView.xib in Resources */,
 				B62FF96A28C6488300B921E2 /* .gitignore in Resources */,
 				B62FF94C28C2394F00B921E2 /* ContentTabView.xib in Resources */,
 				B6755EBC28BCCBC200907087 /* avatar.png in Resources */,
@@ -229,10 +239,12 @@
 				B62FF96428C6101500B921E2 /* NSTableCellView+Extensions.swift in Sources */,
 				C41EF62B28C2C10F002826C3 /* HistoryTabViewController.swift in Sources */,
 				B6755EAB28BCC1EA00907087 /* AppDelegate.swift in Sources */,
+				B63895C428C8B01800B216C4 /* Log.swift in Sources */,
 				B67562EB28C1347600907087 /* IntegerFormatter.swift in Sources */,
 				B62FF96228C6013A00B921E2 /* String+Extensions.swift in Sources */,
 				B6755FB828BCFE5200907087 /* UNNotificationSetting+Extensions.swift in Sources */,
 				B67562E628C1107E00907087 /* NotificationManager.swift in Sources */,
+				B63895C028C8A70E00B216C4 /* PresentationTabViewController.swift in Sources */,
 				B62FF95C28C250D900B921E2 /* AboutWindowController.swift in Sources */,
 				B6755EB828BCC31800907087 /* MainWindowController.swift in Sources */,
 				B62FF95028C23E9200B921E2 /* AuthorizationTabViewController.swift in Sources */,

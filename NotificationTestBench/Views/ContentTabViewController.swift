@@ -32,7 +32,7 @@ class ContentTabViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		print("ContentTab loaded")
+		log("ContentTab loaded")
         
         badgeTextField.formatter = IntegerFormatter()
         
@@ -63,7 +63,7 @@ class ContentTabViewController: NSViewController {
                 let notificationAttachment = try UNNotificationAttachment(identifier: "attachment", url: attachmentUrl)
                 notificationContent.attachments = [ notificationAttachment ]
             } catch {
-                print("Failed to create notification attachment. Error: \(error.localizedDescription)")
+                log("Failed to create notification attachment. Error: \(error.localizedDescription)")
             }
         }
         
@@ -74,7 +74,7 @@ class ContentTabViewController: NSViewController {
     // MARK: Actions
     
     @IBAction private func onChooseAttachmentButtonClicked(_ sender: NSButton) {
-        print("chooseAttachmentButton clicked")
+        log("chooseAttachmentButton clicked")
         
         let (userSelectedFile, attachmentUrl) = getAttachmentFileUrl()
 		if userSelectedFile {
@@ -84,7 +84,7 @@ class ContentTabViewController: NSViewController {
     }
     
     @IBAction private func onAttachmentClearButtonClicked(_ sender: NSButton) {
-        print("attachmentClearButton clicked")
+        log("attachmentClearButton clicked")
         attachmentPathControl.url = nil
         attachmentClearButton.isHidden = true
     }

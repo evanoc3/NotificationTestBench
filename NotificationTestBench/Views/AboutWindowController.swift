@@ -22,7 +22,7 @@ class AboutWindowController: NSWindowController {
     
     override func showWindow(_ sender: Any?) {
         super.showWindow(sender)
-        print("Showing AboutWindow")
+        log("Showing AboutWindow")
         
         window?.level = .floating
         window?.makeKeyAndOrderFront(nil)
@@ -31,6 +31,6 @@ class AboutWindowController: NSWindowController {
     
     override func windowDidLoad() {
         super.windowDidLoad()
-        print("AboutWindow loaded")
+        log("AboutWindow loaded")
     }
 }

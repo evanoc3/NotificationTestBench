@@ -42,7 +42,7 @@ class HistoryTabViewController: NSViewController {
     // MARK: Actions
     
     @IBAction private func removeButtonClicked(_ sender: NSButton) {
-        print("removeButton clicked")
+        log("removeButton clicked")
         
         guard tableView.selectedRow >= 0 else { return }
         
@@ -60,7 +60,7 @@ class HistoryTabViewController: NSViewController {
 	
 	private func deliveredNotificationHandler(_ notification: Notification) {
 		DispatchQueue.main.async(execute: { [weak self]() in
-			print("Reloading HistoryTab tableView")
+			log("Reloading HistoryTab tableView")
 			self?.tableView.reloadData()
 		})
 	}

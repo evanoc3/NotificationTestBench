@@ -24,12 +24,12 @@ class MainWindowController: NSWindowController {
     override func showWindow(_ sender: Any?) {
         super.showWindow(sender)
         
-        print("Showing MainWindow")
+        log("Showing MainWindow")
         window?.makeKeyAndOrderFront(nil)
     }
     
     override func windowDidLoad() {
-        print("MainWindow loaded")
+        log("MainWindow loaded")
         
         mainViewController = MainViewController()
         window?.contentViewController = mainViewController

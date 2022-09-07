@@ -42,10 +42,6 @@ class AuthorizationTabViewController: NSViewController {
         super.viewDidLoad()
         setupUi()
     }
-   
-    deinit {
-        print("AuthorizationTabViewController deinitialized")
-    }
     
     
     // MARK: Public API

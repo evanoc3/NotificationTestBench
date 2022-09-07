@@ -33,11 +33,11 @@ import Cocoa
         guard let window = notification.object as? NSWindow else { return }
         
         if let mainWindow = mainWindowController?.window, window == mainWindow {
-            print("MainWindow closing")
+            log("MainWindow closing")
             return
         }
         if let aboutWindow = aboutWindowController?.window, window == aboutWindow {
-            print("AboutWindow closing")
+            log("AboutWindow closing")
             return
         }
     }
@@ -46,12 +46,12 @@ import Cocoa
     // MARK: Actions
     
     @IBAction func aboutMenuItemClicked(_ sender: NSMenuItem) {
-        print("About menu item clicked")
+        log()
         showAboutWindow()
     }
     
     @IBAction func quitMenuItemClicked(_ sender: NSMenuItem) {
-        print("Quit menu item clicked")
+        log()
         NSApp.terminate(sender)
     }
     

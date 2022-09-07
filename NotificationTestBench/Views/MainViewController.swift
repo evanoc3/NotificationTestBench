@@ -24,6 +24,7 @@ class MainViewController: NSViewController {
     @IBOutlet private var sendNotificationButton: NSButton!
     private var authorizationTabViewController: AuthorizationTabViewController!
     private var contentTabViewController: ContentTabViewController!
+    private var presentationTabViewController: PresentationTabViewController!
 	private var historyTabViewController: HistoryTabViewController!
     private var authorizationCheckTimer: Timer?
 	
@@ -32,7 +33,7 @@ class MainViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("MainView loaded")
+        log("MainView loaded")
         
         setupUi()
         
@@ -65,27 +66,28 @@ class MainViewController: NSViewController {
     // MARK: Actions
     
     @IBAction private func onPreferencesButtonClicked(_ sender: NSButton) {
-        print("preferencesButton clicked")
+        log("preferencesButton clicked")
         
         openSystemNotificationPreferences()
     }
 
     @IBAction private func onRequestAuthorizationButtonClicked(_ sender: NSButton) {
-        print("requestAuthorizationButton clicked")
+        log("requestAuthorizationButton clicked")
         
         let authorizationOptions = authorizationTabViewController.getAuthorizationOptions()
         NotificationManager.shared.requestAuthorization(for: authorizationOptions)
     }
     
     @IBAction func onClearNotificationsButtonClicked(_ sender: NSButton) {
-        print("clearNotificationsButton clicked")
+        log("clearNotificationsButton clicked")
         
         NotificationManager.shared.removePendingAndDeliveredNotifications()
     }
     
     @IBAction func onSendNotificationsButtonClicked(_ sender: NSButton) {
-        print("sendNotificationButton clicked")
+        log("sendNotificationButton clicked")
         
+        // now send the notification
         let notificationContent = contentTabViewController.getMessageContent()
         NotificationManager.shared.sendNotification(content: notificationContent)
     }
@@ -99,6 +101,7 @@ class MainViewController: NSViewController {
         
         setupAuthorizationTab()
         setupContentTab()
+        setupPresentationTab()
         setupHistoryTab()
         
         setButtonsEnabledIfAuthorizationRequested()
@@ -110,6 +113,7 @@ class MainViewController: NSViewController {
         let authorizationTabViewItem = NSTabViewItem(viewController: authorizationTabViewController)
         authorizationTabViewItem.label = "Authorization"
         authorizationTabViewItem.identifier = "authorization"
+        authorizationTabViewItem.view = authorizationTabViewController.view
         tabView.addTabViewItem(authorizationTabViewItem)
     }
     
@@ -118,9 +122,18 @@ class MainViewController: NSViewController {
         let contentTabViewItem = NSTabViewItem(viewController: contentTabViewController)
         contentTabViewItem.label = "Content"
         contentTabViewItem.identifier = "content"
+        contentTabViewItem.view = contentTabViewController.view
         tabView.addTabViewItem(contentTabViewItem)
+    }
+    
+    private func setupPresentationTab() {
+        presentationTabViewController = PresentationTabViewController()
+        let presentationTabViewItem = NSTabViewItem(viewController: presentationTabViewController)
+        presentationTabViewItem.label = "Presentation"
+        presentationTabViewItem.identifier = "presentation"
+        presentationTabViewItem.view = presentationTabViewController.view
+        tabView.addTabViewItem(presentationTabViewItem)
         
-        let _ = contentTabViewItem.view
     }
     
 	private func setupHistoryTab() {
@@ -128,11 +141,12 @@ class MainViewController: NSViewController {
 		let historyTabViewItem = NSTabViewItem(viewController: historyTabViewController)
 		historyTabViewItem.label = "History"
 		historyTabViewItem.identifier = "history"
+        historyTabViewItem.view = historyTabViewController.view
 		tabView.addTabViewItem(historyTabViewItem)
 	}
     
     private func openSystemNotificationPreferences() {
-        print("Opening Notifications pane in System preferences")
+        log("Opening Notifications pane in System preferences")
         NSWorkspace.shared.open(URL(fileURLWithPath: "/System/Library/PreferencePanes/Notifications.prefPane"))
     }
     

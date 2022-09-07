@@ -13,17 +13,23 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     
     // MARK: Static Fields
     
-    private static var singletonInstance: NotificationManager?
-    public static var shared: NotificationManager {
-        if singletonInstance == nil {
-            singletonInstance = NotificationManager()
-        }
-        return singletonInstance!
-    }
+    public static var shared = NotificationManager()
     
     
     // MARK: Fields
     
+    public var presentationOptions: UNNotificationPresentationOptions {
+        didSet {
+            var msg = "Setting presentation options to: "
+            if presentationOptions.contains(.banner) { msg += "banner, " }
+            if presentationOptions.contains(.list) { msg += "list, " }
+            if presentationOptions.contains(.alert) { msg += "alert, " }
+            if presentationOptions.contains(.badge) { msg += "badge, " }
+            if presentationOptions.contains(.sound) { msg += "sound, " }
+            msg = msg.stripSuffix(", ") + "."
+            log(msg)
+        }
+    }
 	private(set) var deliveredNotifications: [UNNotificationRequest] = []
 	private var notificationIdCounter: Int = 0
     
@@ -31,9 +37,15 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     // MARK: Lifecycle
     
     private override init() {
+        if #available(macOS 11.0, *) {
+            presentationOptions = [.banner, .list, .badge, .sound]
+        } else {
+            presentationOptions = [.alert, .badge, .sound]
+        }
+        
         super.init()
         
-        print("Created new NotificationManager instance")
+        log("New NotificationManager instance created")
         UNUserNotificationCenter.current().delegate = self
     }
     
@@ -41,14 +53,14 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     // MARK: Public API
     
     public func requestAuthorization(for forOptions: UNAuthorizationOptions) {
-        print("Requesting authorization for user notifications")
+        log("Requesting authorization for notifications")
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge], completionHandler: { granted, error in
             if let error = error {
-                print("Error 1: \(error.localizedDescription)")
+                log("Error requesting authorization. Error: \(error.localizedDescription)")
                 return
             }
             
-            print("Request for authorization: \(granted ? "granted" : "denied")")
+            log("Request for authorization: \(granted ? "granted" : "denied")")
         })
     }
     
@@ -73,15 +85,15 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
        checkNotificationsAuthorization(callback: { [weak self, content] notificationSettings in
            guard let self = self else { return }
            
-           print("Checking whether notifications are allowed:")
-           print("\tBadge: \(notificationSettings.alertSetting.toString)")
-           print("\tSound: \(notificationSettings.soundSetting.toString)")
-           print("\tAlert: \(notificationSettings.alertSetting.toString)")
-           print("\tCritical: \(notificationSettings.criticalAlertSetting.toString)")
-           print("\tTime Sensitive: \(notificationSettings.timeSensitiveSetting.toString)")
+           log("Checking whether notifications are allowed: " +
+               "Badge (\(notificationSettings.alertSetting.toString)), " +
+               "Sound (\(notificationSettings.soundSetting.toString)), " +
+               "Alert (\(notificationSettings.alertSetting.toString)), " +
+               "Critical (\(notificationSettings.criticalAlertSetting.toString)), " +
+               "Time Sensitive (\(notificationSettings.timeSensitiveSetting.toString)).")
 		   
            guard notificationSettings.alertSetting == .enabled || notificationSettings.badgeSetting == .enabled || notificationSettings.soundSetting == .enabled else { return }
-		   print("Attempting to send notification")
+		   log("Attempting to send notification")
            
 		   // create a new UNNotificationContent object with fields filled depending on the allowed settings
            let notificationContent = UNMutableNotificationContent()
@@ -106,11 +118,11 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
            let notificationRequest = UNNotificationRequest(identifier: notificationId, content: notificationContent, trigger: nil)
            UNUserNotificationCenter.current().add(notificationRequest, withCompletionHandler: { [weak self, notificationId] error in
                if let error = error {
-                   print("Error 4: \(error.localizedDescription)")
+                   log("Error sending notification. Error: \(error.localizedDescription)")
                    return
                }
                
-               print("Notification \"\(notificationId)\" delivered successfully")
+               log("Notification \"\(notificationId)\" delivered successfully")
                guard let self = self else { return }
 			   self.deliveredNotifications.append( notificationRequest )
                NotificationCenter.default.post(name: NSNotification.deliveredNotificationsChanged, object: self)
@@ -137,11 +149,8 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     // MARK: UNUserNotificationCenterDelegate
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-		if #available(macOS 11.0, *) {
-			completionHandler([.banner, .badge, .sound])
-        } else {
-            completionHandler([.alert, .badge, .sound])
-        }
+        completionHandler(presentationOptions)
+        return
     }
     
 }

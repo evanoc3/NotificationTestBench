@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="PresentationTabViewController" customModule="NotificationTestBench" customModuleProvider="target">
+            <connections>
+                <outlet property="alertCheckBox" destination="dbl-am-m3X" id="yDf-fQ-UO5"/>
+                <outlet property="badgeCheckbox" destination="jnj-8T-tvC" id="xbs-Xs-AfF"/>
+                <outlet property="bannerCheckbox" destination="wG7-85-rqW" id="nZt-Sr-gRL"/>
+                <outlet property="listCheckbox" destination="uK1-lh-hHY" id="kfI-jb-84P"/>
+                <outlet property="soundCheckbox" destination="xEo-6f-GCq" id="IPg-Dr-lbG"/>
+                <outlet property="view" destination="c22-O7-iKe" id="F9G-Qp-Lhl"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <customView id="c22-O7-iKe">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="308"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <stackView orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wpl-a9-4qA">
+                    <rect key="frame" x="20" y="152" width="460" height="112"/>
+                    <beginningViews>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wG7-85-rqW">
+                            <rect key="frame" x="-2" y="95" width="69" height="18"/>
+                            <buttonCell key="cell" type="check" title="Banner" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="5MW-SC-ugt">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onCheckboxClicked:" target="-2" id="Few-i3-HH7"/>
+                            </connections>
+                        </button>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uK1-lh-hHY">
+                            <rect key="frame" x="-2" y="71" width="48" height="18"/>
+                            <buttonCell key="cell" type="check" title="List" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="L1u-rJ-bGe">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onCheckboxClicked:" target="-2" id="T1e-eW-upS"/>
+                            </connections>
+                        </button>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dbl-am-m3X">
+                            <rect key="frame" x="-2" y="47" width="65" height="18"/>
+                            <buttonCell key="cell" type="check" title="Alert" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="TKF-sb-Wrt">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onCheckboxClicked:" target="-2" id="xuR-Is-3ng"/>
+                            </connections>
+                        </button>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jnj-8T-tvC">
+                            <rect key="frame" x="-2" y="23" width="72" height="18"/>
+                            <buttonCell key="cell" type="check" title="Badge" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="HmM-bi-QLs">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onCheckboxClicked:" target="-2" id="7Hp-wm-uZd"/>
+                            </connections>
+                        </button>
+                        <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xEo-6f-GCq">
+                            <rect key="frame" x="-2" y="-1" width="65" height="18"/>
+                            <buttonCell key="cell" type="check" title="Sound" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="Hs7-Pt-GGr">
+                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                <font key="font" metaFont="system"/>
+                            </buttonCell>
+                            <connections>
+                                <action selector="onCheckboxClicked:" target="-2" id="KEn-BL-zWQ"/>
+                            </connections>
+                        </button>
+                    </beginningViews>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="hEx-Dg-s11">
+                    <rect key="frame" x="18" y="272" width="144" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Presentation options:" id="lKY-RP-zXU">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="wpl-a9-4qA" secondAttribute="trailing" constant="20" symbolic="YES" id="20P-54-2ZI"/>
+                <constraint firstAttribute="width" constant="500" id="IPY-rY-sIU"/>
+                <constraint firstItem="hEx-Dg-s11" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="KvP-gY-oyO"/>
+                <constraint firstItem="wpl-a9-4qA" firstAttribute="top" secondItem="hEx-Dg-s11" secondAttribute="bottom" constant="8" symbolic="YES" id="PDR-hX-7KA"/>
+                <constraint firstItem="hEx-Dg-s11" firstAttribute="top" secondItem="c22-O7-iKe" secondAttribute="top" constant="20" symbolic="YES" id="hj5-kK-bMo"/>
+                <constraint firstItem="wpl-a9-4qA" firstAttribute="leading" secondItem="c22-O7-iKe" secondAttribute="leading" constant="20" symbolic="YES" id="tI0-c9-yp1"/>
+                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="308" id="zOQ-FU-AdU"/>
+            </constraints>
+            <point key="canvasLocation" x="139" y="154"/>
+        </customView>
+    </objects>
+</document>

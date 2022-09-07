@@ -18,6 +18,8 @@ class HistoryTabViewController: NSViewController {
 	}
 	@IBOutlet private var tableView: NSTableView!
     @IBOutlet private var removeButton: NSButton!
+    @IBOutlet private var helpButton: NSButton!
+    @IBOutlet private var helpPopover: NSPopover!
 	
 	
 	// MARK: Lifecycle
@@ -37,7 +39,7 @@ class HistoryTabViewController: NSViewController {
 	deinit {
 		NotificationCenter.default.removeObserver(self)
 	}
-	
+    
     
     // MARK: Actions
     
@@ -55,6 +57,12 @@ class HistoryTabViewController: NSViewController {
         tableView.reloadData()
     }
     
+    @IBAction private func onHelpButtonClicked(_ sender: NSButton) {
+        log()
+        
+        showHelpPopover()
+    }
+    
 	
 	// MARK: Private Methods
 	
@@ -68,17 +76,30 @@ class HistoryTabViewController: NSViewController {
     private func enableRemoveButtonIfRowIsSelected() {
         removeButton.isEnabled = (tableView.selectedRow >= 0)
     }
+    
+    private func showHelpPopover() {
+        guard let helpPopoverViewController = helpPopover.contentViewController as? HelpPopoverViewController else { return }
+        
+        helpPopoverViewController.setHelpMessage(to:
+            "The history tab contains a table with a row containing the details of each notification that has been delivered " +
+            "by the application so far. You can select a row in the table and click the remove button to delete that notification. " +
+            "Doing so will also remove the notification from the notification center."
+        )
+        
+        helpPopover.show(relativeTo: helpButton.bounds, of: helpButton, preferredEdge: .minX)
+    }
+    
 }
 
 
 // MARK: - NSTableViewDataSource Extension
 extension HistoryTabViewController: NSTableViewDataSource {
-	
-	func numberOfRows(in tableView: NSTableView) -> Int {
-		return NotificationManager.shared.deliveredNotifications.count
-	}
-	
-	func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
+    
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return NotificationManager.shared.deliveredNotifications.count
+    }
+    
+    func tableView(_ tableView: NSTableView, objectValueFor tableColumn: NSTableColumn?, row: Int) -> Any? {
         let notification = NotificationManager.shared.deliveredNotifications[ NotificationManager.shared.deliveredNotifications.count - 1 - row ]
         
         switch tableColumn?.title {
@@ -99,17 +120,17 @@ extension HistoryTabViewController: NSTableViewDataSource {
             case .some(_):
                 return nil
         }
-	}
+    }
     
 }
 
 
 // MARK: - NSTableViewDelegate Extension
 extension HistoryTabViewController: NSTableViewDelegate {
-	
-	func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let notification = NotificationManager.shared.deliveredNotifications[ NotificationManager.shared.deliveredNotifications.count - 1 - row ]
-		
+        
         var cellView: NSTableCellView?
         switch tableColumn?.title {
             case "ID":
@@ -136,9 +157,9 @@ extension HistoryTabViewController: NSTableViewDelegate {
                 break
         }
         
-		return cellView
-	}
-	
+        return cellView
+    }
+    
     func tableViewSelectionDidChange(_ notification: Notification) {
         enableRemoveButtonIfRowIsSelected()
     }

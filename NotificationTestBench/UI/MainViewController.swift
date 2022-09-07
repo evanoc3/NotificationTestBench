@@ -13,6 +13,7 @@ import UserNotifications
 class MainViewController: NSViewController {
     
     // MARK: Fields
+    
     override var nibName: NSNib.Name? {
         return "MainView"
     }
@@ -96,6 +97,8 @@ class MainViewController: NSViewController {
     // MARK: Private Methods
     
     private func setupUi() {
+        tabView.delegate = self
+        
         // remove the placeholder tab view item
         tabView.removeTabViewItem(placeholderTabViewItem)
         
@@ -115,6 +118,7 @@ class MainViewController: NSViewController {
         authorizationTabViewItem.identifier = "authorization"
         authorizationTabViewItem.view = authorizationTabViewController.view
         tabView.addTabViewItem(authorizationTabViewItem)
+        
     }
     
     private func setupContentTab() {
@@ -133,7 +137,6 @@ class MainViewController: NSViewController {
         presentationTabViewItem.identifier = "presentation"
         presentationTabViewItem.view = presentationTabViewController.view
         tabView.addTabViewItem(presentationTabViewItem)
-        
     }
     
 	private func setupHistoryTab() {
@@ -173,4 +176,16 @@ class MainViewController: NSViewController {
             self?.setClearNotificationsButtonEnabled()
         })
     }
+    
+}
+
+
+// MARK: - NSTabViewDelegate
+extension MainViewController: NSTabViewDelegate {
+    
+    func tabView(_ tabView: NSTabView, didSelect tabViewItem: NSTabViewItem?) {
+        guard let tabViewIdentifier = tabViewItem?.identifier as? String else { return }
+        log("Selected tab: \(tabViewIdentifier)")
+    }
+    
 }

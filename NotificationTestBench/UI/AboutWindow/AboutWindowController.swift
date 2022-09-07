@@ -33,4 +33,5 @@ class AboutWindowController: NSWindowController {
         super.windowDidLoad()
         log("AboutWindow loaded")
     }
+    
 }

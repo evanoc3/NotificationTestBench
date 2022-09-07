@@ -33,6 +33,8 @@ class MainWindowController: NSWindowController {
         
         mainViewController = MainViewController()
         window?.contentViewController = mainViewController
+        
+        window?.autorecalculatesKeyViewLoop = true
     }
 
 }

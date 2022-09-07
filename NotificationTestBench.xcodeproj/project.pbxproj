@@ -23,6 +23,8 @@
 		B63895BE28C8A6D400B216C4 /* PresentationTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B63895BD28C8A6D400B216C4 /* PresentationTabView.xib */; };
 		B63895C028C8A70E00B216C4 /* PresentationTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63895BF28C8A70E00B216C4 /* PresentationTabViewController.swift */; };
 		B63895C428C8B01800B216C4 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63895C328C8B01800B216C4 /* Log.swift */; };
+		B63A149728C8CE83008593E4 /* HelpPopoverView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B63A149628C8CE83008593E4 /* HelpPopoverView.xib */; };
+		B63A149928C8CF16008593E4 /* HelpPopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B63A149828C8CF16008593E4 /* HelpPopoverViewController.swift */; };
 		B6755EAB28BCC1EA00907087 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6755EAA28BCC1EA00907087 /* AppDelegate.swift */; };
 		B6755EAD28BCC1EC00907087 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B6755EAC28BCC1EC00907087 /* Assets.xcassets */; };
 		B6755EB028BCC1EC00907087 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6755EAE28BCC1EC00907087 /* MainMenu.xib */; };
@@ -53,6 +55,8 @@
 		B63895BD28C8A6D400B216C4 /* PresentationTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresentationTabView.xib; sourceTree = "<group>"; };
 		B63895BF28C8A70E00B216C4 /* PresentationTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentationTabViewController.swift; sourceTree = "<group>"; };
 		B63895C328C8B01800B216C4 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		B63A149628C8CE83008593E4 /* HelpPopoverView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPopoverView.xib; sourceTree = "<group>"; };
+		B63A149828C8CF16008593E4 /* HelpPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPopoverViewController.swift; sourceTree = "<group>"; };
 		B6755EA728BCC1EA00907087 /* NotificationTestBench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotificationTestBench.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6755EAA28BCC1EA00907087 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6755EAC28BCC1EC00907087 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -79,6 +83,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B63A149E28C8DD08008593E4 /* AboutWindow */ = {
+			isa = PBXGroup;
+			children = (
+				B62FF95928C250C500B921E2 /* AboutWindow.xib */,
+				B62FF95B28C250D800B921E2 /* AboutWindowController.swift */,
+			);
+			path = AboutWindow;
+			sourceTree = "<group>";
+		};
+		B63A149F28C8DD1F008593E4 /* TabViews */ = {
+			isa = PBXGroup;
+			children = (
+				B62FF95128C23EC700B921E2 /* AuthorizationTabView.xib */,
+				B62FF94F28C23E9200B921E2 /* AuthorizationTabViewController.swift */,
+				B62FF94B28C2394F00B921E2 /* ContentTabView.xib */,
+				B62FF94D28C2395E00B921E2 /* ContentTabViewController.swift */,
+				C41EF62C28C2C13C002826C3 /* HistoryTabView.xib */,
+				C41EF62A28C2C10F002826C3 /* HistoryTabViewController.swift */,
+				B63895BD28C8A6D400B216C4 /* PresentationTabView.xib */,
+				B63895BF28C8A70E00B216C4 /* PresentationTabViewController.swift */,
+			);
+			path = TabViews;
+			sourceTree = "<group>";
+		};
+		B63A14A028C8DD3A008593E4 /* HelpPopover */ = {
+			isa = PBXGroup;
+			children = (
+				B63A149628C8CE83008593E4 /* HelpPopoverView.xib */,
+				B63A149828C8CF16008593E4 /* HelpPopoverViewController.swift */,
+			);
+			path = HelpPopover;
+			sourceTree = "<group>";
+		};
+		B63A14A128C8DD64008593E4 /* MainWindow */ = {
+			isa = PBXGroup;
+			children = (
+				B6755EB928BCC54D00907087 /* MainWindow.xib */,
+				B6755EB728BCC31800907087 /* MainWindowController.swift */,
+			);
+			path = MainWindow;
+			sourceTree = "<group>";
+		};
+		B63A14A228C8DDAC008593E4 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				B67562E728C1173D00907087 /* Extensions */,
+				B67562EA28C1347600907087 /* IntegerFormatter.swift */,
+				B63895C328C8B01800B216C4 /* Log.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		B6755E9E28BCC1E900907087 = {
 			isa = PBXGroup;
 			children = (
@@ -100,15 +156,10 @@
 			isa = PBXGroup;
 			children = (
 				B6755EAA28BCC1EA00907087 /* AppDelegate.swift */,
-				B6755EAC28BCC1EC00907087 /* Assets.xcassets */,
-				B67562E728C1173D00907087 /* Extensions */,
-				B67562EA28C1347600907087 /* IntegerFormatter.swift */,
-				B63895C328C8B01800B216C4 /* Log.swift */,
-				B6755EAE28BCC1EC00907087 /* MainMenu.xib */,
 				B67562E528C1107E00907087 /* NotificationManager.swift */,
-				B6755EB128BCC1EC00907087 /* NotificationTestBench.entitlements */,
 				B67562E828C11F1D00907087 /* Resources */,
-				B67562E928C11F3600907087 /* Views */,
+				B67562E928C11F3600907087 /* UI */,
+				B63A14A228C8DDAC008593E4 /* Utils */,
 			);
 			path = NotificationTestBench;
 			sourceTree = "<group>";
@@ -128,30 +179,25 @@
 		B67562E828C11F1D00907087 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B6755EAC28BCC1EC00907087 /* Assets.xcassets */,
 				B6755EBB28BCCBC200907087 /* avatar.png */,
+				B6755EB128BCC1EC00907087 /* NotificationTestBench.entitlements */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		B67562E928C11F3600907087 /* Views */ = {
+		B67562E928C11F3600907087 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				B62FF95928C250C500B921E2 /* AboutWindow.xib */,
-				B62FF95B28C250D800B921E2 /* AboutWindowController.swift */,
-				B62FF95128C23EC700B921E2 /* AuthorizationTabView.xib */,
-				B62FF94F28C23E9200B921E2 /* AuthorizationTabViewController.swift */,
-				B62FF94B28C2394F00B921E2 /* ContentTabView.xib */,
-				B62FF94D28C2395E00B921E2 /* ContentTabViewController.swift */,
-				C41EF62C28C2C13C002826C3 /* HistoryTabView.xib */,
-				C41EF62A28C2C10F002826C3 /* HistoryTabViewController.swift */,
+				B63A149E28C8DD08008593E4 /* AboutWindow */,
+				B63A14A028C8DD3A008593E4 /* HelpPopover */,
+				B6755EAE28BCC1EC00907087 /* MainMenu.xib */,
 				B62FF95D28C255BF00B921E2 /* MainView.xib */,
 				B62FF95F28C255EA00B921E2 /* MainViewController.swift */,
-				B6755EB928BCC54D00907087 /* MainWindow.xib */,
-				B6755EB728BCC31800907087 /* MainWindowController.swift */,
-				B63895BD28C8A6D400B216C4 /* PresentationTabView.xib */,
-				B63895BF28C8A70E00B216C4 /* PresentationTabViewController.swift */,
+				B63A14A128C8DD64008593E4 /* MainWindow */,
+				B63A149F28C8DD1F008593E4 /* TabViews */,
 			);
-			path = Views;
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +265,7 @@
 				B62FF95228C23EC700B921E2 /* AuthorizationTabView.xib in Resources */,
 				B62FF95A28C250C500B921E2 /* AboutWindow.xib in Resources */,
 				B62FF95E28C255BF00B921E2 /* MainView.xib in Resources */,
+				B63A149728C8CE83008593E4 /* HelpPopoverView.xib in Resources */,
 				B6755EAD28BCC1EC00907087 /* Assets.xcassets in Resources */,
 				B6755EB028BCC1EC00907087 /* MainMenu.xib in Resources */,
 				B6755EBA28BCC54D00907087 /* MainWindow.xib in Resources */,
@@ -243,6 +290,7 @@
 				B67562EB28C1347600907087 /* IntegerFormatter.swift in Sources */,
 				B62FF96228C6013A00B921E2 /* String+Extensions.swift in Sources */,
 				B6755FB828BCFE5200907087 /* UNNotificationSetting+Extensions.swift in Sources */,
+				B63A149928C8CF16008593E4 /* HelpPopoverViewController.swift in Sources */,
 				B67562E628C1107E00907087 /* NotificationManager.swift in Sources */,
 				B63895C028C8A70E00B216C4 /* PresentationTabViewController.swift in Sources */,
 				B62FF95C28C250D900B921E2 /* AboutWindowController.swift in Sources */,

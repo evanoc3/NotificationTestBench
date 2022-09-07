@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="AuthorizationTabViewController" customModule="NotificationTestBench" customModuleProvider="target">
+            <connections>
+                <outlet property="alertAuthorizationCheckbox" destination="au8-pL-Kre" id="AhD-xY-Cqx"/>
+                <outlet property="alertsAuthorizationStatusLabel" destination="SE6-WL-b7f" id="bfd-fe-f4M"/>
+                <outlet property="authorizationTitleLabel" destination="9Nr-Qy-gia" id="vhU-wQ-1hN"/>
+                <outlet property="badgeAuthorizationCheckbox" destination="fzg-LG-K3L" id="5df-SW-uAr"/>
+                <outlet property="badgeAuthorizationStatusLabel" destination="Ty6-Yk-6nu" id="X0b-d6-jCx"/>
+                <outlet property="criticalAuthorizationAvailabilityLabel" destination="RNM-dj-Zxe" id="ENk-fZ-SxO"/>
+                <outlet property="criticalAuthorizationCheckbox" destination="PX7-T0-E2J" id="CJG-ZE-uZN"/>
+                <outlet property="criticalAuthorizationStatusLabel" destination="TcV-rs-qEz" id="KFt-nP-tzW"/>
+                <outlet property="helpButton" destination="UZd-S3-bbD" id="kzB-hM-cVy"/>
+                <outlet property="helpPopover" destination="PfE-N2-cj6" id="kZi-49-2CU"/>
+                <outlet property="provisionalAuthorizationAvailabilityLabel" destination="tZG-oN-G9W" id="Zdk-Mq-NMF"/>
+                <outlet property="provisionalAuthorizationCheckbox" destination="FPc-hg-Vca" id="FCV-ao-4Zm"/>
+                <outlet property="provisionalAuthorizationContainer" destination="K3S-Rc-Igx" id="dTi-f7-0eN"/>
+                <outlet property="soundAuthorizationCheckbox" destination="xnn-RP-iri" id="TNT-dR-N0q"/>
+                <outlet property="soundsAuthorizationStatusLabel" destination="Q4l-5K-ZEH" id="wz3-dY-d4A"/>
+                <outlet property="timeSensitiveAuthorizationAvailabilityLabel" destination="cgr-le-3KX" id="8D5-eV-wUD"/>
+                <outlet property="timeSensitiveAuthorizationCheckbox" destination="vX8-Ea-MDX" id="EOv-72-UgJ"/>
+                <outlet property="timeSensitiveAuthorizationStatusLabel" destination="5RM-cl-SgS" id="L6s-pJ-4xR"/>
+                <outlet property="view" destination="10x-X9-gMF" id="fPQ-u5-7BL"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <view misplaced="YES" id="10x-X9-gMF">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="347"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+            <subviews>
+                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9Nr-Qy-gia">
+                    <rect key="frame" x="18" y="311" width="173" height="16"/>
+                    <textFieldCell key="cell" lineBreakMode="clipping" title="Request authorization for:" id="uqj-Ej-FlV">
+                        <font key="font" metaFont="systemBold"/>
+                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                    </textFieldCell>
+                </textField>
+                <stackView orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hGM-43-WrC">
+                    <rect key="frame" x="20" y="167" width="321" height="136"/>
+                    <beginningViews>
+                        <stackView orientation="horizontal" alignment="centerY" spacing="2" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="FX2-ls-MS4" userLabel="Alerts Stack View">
+                            <rect key="frame" x="0.0" y="120" width="121" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <beginningViews>
+                                <button verticalHuggingPriority="750" id="au8-pL-Kre">
+                                    <rect key="frame" x="-2" y="-1" width="62" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="Alerts" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="vj8-cZ-5cy">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="SE6-WL-b7f">
+                                    <rect key="frame" x="60" y="0.0" width="63" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="↩️ Alerts" id="FP3-6m-cai">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </beginningViews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <stackView orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="QxJ-y9-Tji" userLabel="Badge Stack View">
+                            <rect key="frame" x="0.0" y="96" width="146" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <beginningViews>
+                                <button verticalHuggingPriority="750" id="fzg-LG-K3L">
+                                    <rect key="frame" x="-2" y="-1" width="72" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="Badges" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="uKj-u4-QkO">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Ty6-Yk-6nu">
+                                    <rect key="frame" x="76" y="0.0" width="72" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="✅ Badges" id="Zsy-FQ-qtE">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </beginningViews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <stackView orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="fRj-KG-7JV" userLabel="Sounds Stack View">
+                            <rect key="frame" x="0.0" y="72" width="147" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <beginningViews>
+                                <button verticalHuggingPriority="750" id="xnn-RP-iri">
+                                    <rect key="frame" x="-2" y="-1" width="72" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="Sounds" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="X7g-Iw-oIE">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="Q4l-5K-ZEH">
+                                    <rect key="frame" x="76" y="0.0" width="73" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="❌ Sounds" id="3PU-Oi-9qn">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </beginningViews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <stackView orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="K3S-Rc-Igx" userLabel="Provisional Stack View">
+                            <rect key="frame" x="0.0" y="48" width="232" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <beginningViews>
+                                <button verticalHuggingPriority="750" id="FPc-hg-Vca">
+                                    <rect key="frame" x="-2" y="-1" width="92" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="Provisional" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="oqz-YY-ZkH">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="tZG-oN-G9W">
+                                    <rect key="frame" x="96" y="0.0" width="138" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="(macOS 10.14 and up)" id="RH4-dZ-BHd">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </beginningViews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <stackView orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="fKN-Wp-jQl" userLabel="Critical Stack View">
+                            <rect key="frame" x="0.0" y="24" width="283" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <beginningViews>
+                                <button verticalHuggingPriority="750" id="PX7-T0-E2J">
+                                    <rect key="frame" x="-2" y="-1" width="69" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="Critical" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="F2o-NF-JkP">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="TcV-rs-qEz">
+                                    <rect key="frame" x="73" y="0.0" width="70" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="↩️ Critical" id="zzC-IF-nXz">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="RNM-dj-Zxe">
+                                    <rect key="frame" x="147" y="0.0" width="138" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="(macOS 10.14 and up)" id="HNC-0F-SJc">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </beginningViews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                        <stackView orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" id="phs-b9-UeZ" userLabel="TimeSensitive Stack View">
+                            <rect key="frame" x="0.0" y="0.0" width="321" height="16"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <beginningViews>
+                                <button verticalHuggingPriority="750" id="vX8-Ea-MDX">
+                                    <rect key="frame" x="-2" y="-1" width="113" height="18"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="check" title="Time sensitive" bezelStyle="regularSquare" imagePosition="left" enabled="NO" inset="2" id="LeF-ov-Ggm">
+                                        <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                    </buttonCell>
+                                </button>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="5RM-cl-SgS">
+                                    <rect key="frame" x="117" y="0.0" width="114" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="✅ Time sensitive" id="vjX-Qd-qPv">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" id="cgr-le-3KX">
+                                    <rect key="frame" x="235" y="0.0" width="86" height="16"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" lineBreakMode="clipping" title="(macOS 12.0)" id="2od-Dv-cy1">
+                                        <font key="font" metaFont="system"/>
+                                        <color key="textColor" name="disabledControlTextColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                            </beginningViews>
+                            <visibilityPriorities>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                                <integer value="1000"/>
+                            </visibilityPriorities>
+                            <customSpacing>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                                <real value="3.4028234663852886e+38"/>
+                            </customSpacing>
+                        </stackView>
+                    </beginningViews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="321" id="DNZ-Pv-gmP"/>
+                    </constraints>
+                    <visibilityPriorities>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                        <integer value="1000"/>
+                    </visibilityPriorities>
+                    <customSpacing>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                        <real value="3.4028234663852886e+38"/>
+                    </customSpacing>
+                </stackView>
+                <button toolTip="Help" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UZd-S3-bbD">
+                    <rect key="frame" x="457" y="16" width="25" height="25"/>
+                    <buttonCell key="cell" type="help" bezelStyle="helpButton" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="QPd-9b-rnk">
+                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                        <font key="font" metaFont="system"/>
+                    </buttonCell>
+                    <connections>
+                        <action selector="onHelpButtonClicked:" target="-2" id="YhJ-CE-FSn"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="hGM-43-WrC" firstAttribute="leading" secondItem="10x-X9-gMF" secondAttribute="leading" constant="20" symbolic="YES" id="ALl-Gu-bkj"/>
+                <constraint firstItem="hGM-43-WrC" firstAttribute="top" secondItem="9Nr-Qy-gia" secondAttribute="bottom" constant="8" symbolic="YES" id="I15-Au-hhW"/>
+                <constraint firstItem="9Nr-Qy-gia" firstAttribute="leading" secondItem="10x-X9-gMF" secondAttribute="leading" constant="20" symbolic="YES" id="Loh-9N-boV"/>
+                <constraint firstAttribute="width" constant="500" id="Qbk-KW-RwC"/>
+                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="347" id="Suy-oJ-nQ1"/>
+                <constraint firstAttribute="trailing" secondItem="UZd-S3-bbD" secondAttribute="trailing" constant="20" symbolic="YES" id="W4P-el-5nX"/>
+                <constraint firstItem="9Nr-Qy-gia" firstAttribute="top" secondItem="10x-X9-gMF" secondAttribute="top" constant="20" symbolic="YES" id="cGE-D1-HH3"/>
+                <constraint firstAttribute="bottom" secondItem="UZd-S3-bbD" secondAttribute="bottom" constant="20" symbolic="YES" id="cpj-Do-2Og"/>
+            </constraints>
+            <point key="canvasLocation" x="42" y="465"/>
+        </view>
+        <viewController title="Help" nibName="HelpPopoverView" id="Ac7-aX-CzR" userLabel="Popover View Controller" customClass="HelpPopoverViewController" customModule="NotificationTestBench" customModuleProvider="target"/>
+        <popover behavior="semitransient" id="PfE-N2-cj6">
+            <connections>
+                <outlet property="contentViewController" destination="Ac7-aX-CzR" id="Hws-vu-z6f"/>
+            </connections>
+        </popover>
+    </objects>
+</document>

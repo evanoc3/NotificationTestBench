@@ -30,10 +30,11 @@ class AuthorizationTabViewController: NSViewController {
     @IBOutlet private var provisionalAuthorizationContainer: NSStackView!
     @IBOutlet private var provisionalAuthorizationCheckbox: NSButton!
     @IBOutlet private var provisionalAuthorizationAvailabilityLabel: NSTextField!
-    
     @IBOutlet private var timeSensitiveAuthorizationCheckbox: NSButton!
     @IBOutlet private var timeSensitiveAuthorizationStatusLabel: NSTextField!
     @IBOutlet private var timeSensitiveAuthorizationAvailabilityLabel: NSTextField!
+    @IBOutlet private var helpButton: NSButton!
+    @IBOutlet private var helpPopover: NSPopover!
 
     
     // MARK: Lifecycle
@@ -66,6 +67,15 @@ class AuthorizationTabViewController: NSViewController {
         setupUi()
     }
     
+    
+    // MARK: Actions
+    
+    @IBAction private func onHelpButtonClicked(_ sender: NSButton!) {
+        log()
+        showHelpPopover()
+    }
+    
+    
     // MARK: Private Methods
     
     private func setupUi() {
@@ -77,6 +87,8 @@ class AuthorizationTabViewController: NSViewController {
                 self?.setupCheckboxes()
             }
         })
+        
+        helpPopover.delegate = self
     }
     
     private func setCheckboxAndLabelVisibility(checkboxesHidden: Bool, labelsHidden: Bool) {
@@ -150,4 +162,34 @@ class AuthorizationTabViewController: NSViewController {
         })
 
     }
+    
+    private func showHelpPopover() {
+        guard let helpPopoverViewController = helpPopover.contentViewController as? HelpPopoverViewController else { return }
+        
+        helpPopoverViewController.setHelpMessage(to:
+            "The authorization tab contains controls and labels relevant to the process of an application requesting authorization " +
+            "for user notifications.\n" +
+            "\n" +
+            "If authorization has not been requested yet, then the authorization tab will contain checkboxes allowing you to customize " +
+            "the specific aspects of notifications that you want to request authorization for." +
+            "If authorization has already been requested, then it will instead show labels indicating whether each of the aspects is " +
+            "enabled (✅), disabled (❌), or not supported by the platform (↩️).\n" +
+            "\n" +
+            "Once authorization has been requested, You must delete the authorization before it can be re-requested again. To do this, find " +
+            "'NotificationTestBench' in the 'Notifications' tab in System Preferences, select it and press backspace (⌫). This will delete the " +
+            "previous authorization, and you will have to request again. The authorization tab will automatically update to show the checkboxes again."
+        )
+        
+        helpPopover.show(relativeTo: helpButton.bounds, of: helpButton, preferredEdge: .minX)
+    }
+}
+
+
+// MARK: - NSPopoverDelegate Extension
+extension AuthorizationTabViewController: NSPopoverDelegate {
+    
+    func popoverDidClose(_ notification: Notification) {
+        log()
+    }
+    
 }

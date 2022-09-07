@@ -22,6 +22,8 @@ class PresentationTabViewController: NSViewController {
     @IBOutlet private var alertCheckBox: NSButton!
     @IBOutlet private var badgeCheckbox: NSButton!
     @IBOutlet private var soundCheckbox: NSButton!
+    @IBOutlet private var helpButton: NSButton!
+    @IBOutlet private var helpPopover: NSPopover!
     
     
     // MARK: Lifecycle
@@ -73,6 +75,13 @@ class PresentationTabViewController: NSViewController {
         NotificationManager.shared.presentationOptions = getPresentationOptions()
     }
     
+    @IBAction private func onHelpButtonClicked(_ sender: NSButton!) {
+        log()
+        
+        showHelpPopover()
+    }
+    
+    
     // MARK: Private Methods
     
     private func setupUi() {
@@ -87,6 +96,28 @@ class PresentationTabViewController: NSViewController {
         listCheckbox.state = bannerAndListPresentationOptionsAvailable ? .on : .off
         alertCheckBox.isHidden = bannerAndListPresentationOptionsAvailable
         alertCheckBox.state = !bannerAndListPresentationOptionsAvailable ? .on : .off
+    }
+    
+    private func showHelpPopover() {
+        guard let helpPopoverViewController = helpPopover.contentViewController as? HelpPopoverViewController else { return }
+        
+        helpPopoverViewController.setHelpMessage(to:
+            "The presentation tab contains checkboxes which control which aspects of a notification will be delivered while " +
+            "the current application is in focus.\n" +
+            "\n" +
+            "The banner checkbox (only available in macOS 11 and up) controls whether the notification appears over the desktop.\n" +
+            "\n" +
+            "The list checkbox (only available in macOS 11 and up) controls whether the notification gets added to the notification " +
+            "center.\n" +
+            "\n" +
+            "The alert checkbox (removed in macOS 11) is the same as both the banner and list checkbox.\n" +
+            "\n" +
+            "The badge checkbox controls whether a badge will be displayed on the app icon in the dock.\n" +
+            "\n" +
+            "The sound checkbox controls whether a sound will be played when the notification is delivered."
+        )
+        
+        helpPopover.show(relativeTo: helpButton.bounds, of: helpButton, preferredEdge: .minX)
     }
     
 }

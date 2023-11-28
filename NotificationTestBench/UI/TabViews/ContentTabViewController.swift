@@ -44,7 +44,7 @@ class ContentTabViewController: NSViewController {
     
     // MARK: Public API
     
-    public func getMessageContent() -> UNNotificationContent {
+    public func getMessageContent() -> UNMutableNotificationContent {
         let notificationContent = UNMutableNotificationContent()
         
         notificationContent.title = titleTextField.stringValue

@@ -57,4 +57,9 @@ extension NSTableCellView {
         textField?.stringValue = ""
         textField?.toolTip = "Attachment: not set"
     }
+    
+    func setCategory(category: String) {
+        textField?.stringValue = category
+        textField?.toolTip = category
+    }
 }

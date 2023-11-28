@@ -25,10 +25,11 @@ class MainViewController: NSViewController {
     @IBOutlet private var sendNotificationButton: NSButton!
     private var authorizationTabViewController: AuthorizationTabViewController!
     private var contentTabViewController: ContentTabViewController!
+    private var actionsTabViewController: ActionsTabViewController!
     private var presentationTabViewController: PresentationTabViewController!
-	private var historyTabViewController: HistoryTabViewController!
+    private var historyTabViewController: HistoryTabViewController!
     private var authorizationCheckTimer: Timer?
-	
+    
     
     // MARK: Lifecycle
     
@@ -46,7 +47,7 @@ class MainViewController: NSViewController {
     
     override func viewWillAppear() {
         super.viewWillAppear()
-
+        
         authorizationCheckTimer = Timer.scheduledTimer(timeInterval: 2,
                                                        target: self,
                                                        selector: #selector(self.authorizationCheckTimerCallback),
@@ -71,7 +72,7 @@ class MainViewController: NSViewController {
         
         openSystemNotificationPreferences()
     }
-
+    
     @IBAction private func onRequestAuthorizationButtonClicked(_ sender: NSButton) {
         log("requestAuthorizationButton clicked")
         
@@ -90,6 +91,9 @@ class MainViewController: NSViewController {
         
         // now send the notification
         let notificationContent = contentTabViewController.getMessageContent()
+        if actionsTabViewController?.isCategoryRegistered() ?? false {
+            notificationContent.categoryIdentifier = NotifiactionCategoryIdentifier
+        }
         NotificationManager.shared.sendNotification(content: notificationContent)
     }
     
@@ -104,6 +108,7 @@ class MainViewController: NSViewController {
         
         setupAuthorizationTab()
         setupContentTab()
+        setupActionsTab()
         setupPresentationTab()
         setupHistoryTab()
         
@@ -116,7 +121,7 @@ class MainViewController: NSViewController {
         let authorizationTabViewItem = NSTabViewItem(viewController: authorizationTabViewController)
         authorizationTabViewItem.label = "Authorization"
         authorizationTabViewItem.identifier = "authorization"
-        authorizationTabViewItem.view = authorizationTabViewController.view
+        _ = authorizationTabViewController.view
         tabView.addTabViewItem(authorizationTabViewItem)
         
     }
@@ -126,8 +131,17 @@ class MainViewController: NSViewController {
         let contentTabViewItem = NSTabViewItem(viewController: contentTabViewController)
         contentTabViewItem.label = "Content"
         contentTabViewItem.identifier = "content"
-        contentTabViewItem.view = contentTabViewController.view
+        _ = contentTabViewController.view
         tabView.addTabViewItem(contentTabViewItem)
+    }
+    
+    private func setupActionsTab() {
+        actionsTabViewController = ActionsTabViewController()
+        let actionsTabViewItem = NSTabViewItem(viewController: actionsTabViewController)
+        actionsTabViewItem.label = "Actions"
+        actionsTabViewItem.identifier = "actions"
+        _ = actionsTabViewController.view
+        tabView.addTabViewItem(actionsTabViewItem)
     }
     
     private func setupPresentationTab() {
@@ -135,7 +149,7 @@ class MainViewController: NSViewController {
         let presentationTabViewItem = NSTabViewItem(viewController: presentationTabViewController)
         presentationTabViewItem.label = "Presentation"
         presentationTabViewItem.identifier = "presentation"
-        presentationTabViewItem.view = presentationTabViewController.view
+        _ = presentationTabViewController.view
         tabView.addTabViewItem(presentationTabViewItem)
     }
     
@@ -144,7 +158,7 @@ class MainViewController: NSViewController {
 		let historyTabViewItem = NSTabViewItem(viewController: historyTabViewController)
 		historyTabViewItem.label = "History"
 		historyTabViewItem.identifier = "history"
-        historyTabViewItem.view = historyTabViewController.view
+        _ = historyTabViewController.view
 		tabView.addTabViewItem(historyTabViewItem)
 	}
     

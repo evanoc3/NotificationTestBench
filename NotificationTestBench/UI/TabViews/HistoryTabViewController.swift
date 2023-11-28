@@ -134,23 +134,26 @@ extension HistoryTabViewController: NSTableViewDelegate {
         var cellView: NSTableCellView?
         switch tableColumn?.title {
             case "ID":
-                cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier.idCell, owner: nil) as? NSTableCellView
+                cellView = tableView.makeView(withIdentifier: .idCell, owner: nil) as? NSTableCellView
                 cellView?.setNotificationId(notificationId: notification.identifier)
             case "Title":
-                cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier.titleCell, owner: nil) as? NSTableCellView
+                cellView = tableView.makeView(withIdentifier: .titleCell, owner: nil) as? NSTableCellView
                 cellView?.setTitle(title: notification.content.title)
             case "Subtitle":
-                cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier.subtitleCell, owner: nil) as? NSTableCellView
+                cellView = tableView.makeView(withIdentifier: .subtitleCell, owner: nil) as? NSTableCellView
                 cellView?.setSubtitle(subtitle: notification.content.subtitle)
             case "Badge":
-                cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier.badgeCell, owner: nil) as? NSTableCellView
+                cellView = tableView.makeView(withIdentifier: .badgeCell, owner: nil) as? NSTableCellView
                 cellView?.setBadge(badge: notification.content.badge)
             case "Sound":
-                cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier.soundCell, owner: nil) as? NSTableCellView
+                cellView = tableView.makeView(withIdentifier: .soundCell, owner: nil) as? NSTableCellView
                 cellView?.setSound(sound: notification.content.sound)
             case "Attachment":
-                cellView = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier.attachmentCell, owner: nil) as? NSTableCellView
+                cellView = tableView.makeView(withIdentifier: .attachmentCell, owner: nil) as? NSTableCellView
                 cellView?.setAttachment(attachment: notification.content.attachments.first)
+        case "Category":
+            cellView = tableView.makeView(withIdentifier: .attachmentCell, owner: nil) as? NSTableCellView
+            cellView?.setCategory(category: notification.content.categoryIdentifier)
             case .none:
                 break
             case .some(_):

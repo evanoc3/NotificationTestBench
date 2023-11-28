@@ -34,6 +34,8 @@
 		B6755FB828BCFE5200907087 /* UNNotificationSetting+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6755FB728BCFE5200907087 /* UNNotificationSetting+Extensions.swift */; };
 		B67562E628C1107E00907087 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67562E528C1107E00907087 /* NotificationManager.swift */; };
 		B67562EB28C1347600907087 /* IntegerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B67562EA28C1347600907087 /* IntegerFormatter.swift */; };
+		B6ADE90D2B163F7600B75793 /* ActionsTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6ADE90C2B163F7600B75793 /* ActionsTabView.xib */; };
+		B6ADE90F2B163F8300B75793 /* ActionsTabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6ADE90E2B163F8300B75793 /* ActionsTabsViewController.swift */; };
 		C41EF62B28C2C10F002826C3 /* HistoryTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41EF62A28C2C10F002826C3 /* HistoryTabViewController.swift */; };
 		C41EF62D28C2C13C002826C3 /* HistoryTabView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C41EF62C28C2C13C002826C3 /* HistoryTabView.xib */; };
 /* End PBXBuildFile section */
@@ -68,6 +70,8 @@
 		B6755FB728BCFE5200907087 /* UNNotificationSetting+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UNNotificationSetting+Extensions.swift"; sourceTree = "<group>"; };
 		B67562E528C1107E00907087 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		B67562EA28C1347600907087 /* IntegerFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntegerFormatter.swift; sourceTree = "<group>"; };
+		B6ADE90C2B163F7600B75793 /* ActionsTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActionsTabView.xib; sourceTree = "<group>"; };
+		B6ADE90E2B163F8300B75793 /* ActionsTabsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsTabsViewController.swift; sourceTree = "<group>"; };
 		C41EF62A28C2C10F002826C3 /* HistoryTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTabViewController.swift; sourceTree = "<group>"; };
 		C41EF62C28C2C13C002826C3 /* HistoryTabView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HistoryTabView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -95,6 +99,8 @@
 		B63A149F28C8DD1F008593E4 /* TabViews */ = {
 			isa = PBXGroup;
 			children = (
+				B6ADE90C2B163F7600B75793 /* ActionsTabView.xib */,
+				B6ADE90E2B163F8300B75793 /* ActionsTabsViewController.swift */,
 				B62FF95128C23EC700B921E2 /* AuthorizationTabView.xib */,
 				B62FF94F28C23E9200B921E2 /* AuthorizationTabViewController.swift */,
 				B62FF94B28C2394F00B921E2 /* ContentTabView.xib */,
@@ -262,6 +268,7 @@
 				B62FF96A28C6488300B921E2 /* .gitignore in Resources */,
 				B62FF94C28C2394F00B921E2 /* ContentTabView.xib in Resources */,
 				B6755EBC28BCCBC200907087 /* avatar.png in Resources */,
+				B6ADE90D2B163F7600B75793 /* ActionsTabView.xib in Resources */,
 				B62FF95228C23EC700B921E2 /* AuthorizationTabView.xib in Resources */,
 				B62FF95A28C250C500B921E2 /* AboutWindow.xib in Resources */,
 				B62FF95E28C255BF00B921E2 /* MainView.xib in Resources */,
@@ -292,6 +299,7 @@
 				B6755FB828BCFE5200907087 /* UNNotificationSetting+Extensions.swift in Sources */,
 				B63A149928C8CF16008593E4 /* HelpPopoverViewController.swift in Sources */,
 				B67562E628C1107E00907087 /* NotificationManager.swift in Sources */,
+				B6ADE90F2B163F8300B75793 /* ActionsTabsViewController.swift in Sources */,
 				B63895C028C8A70E00B216C4 /* PresentationTabViewController.swift in Sources */,
 				B62FF95C28C250D900B921E2 /* AboutWindowController.swift in Sources */,
 				B6755EB828BCC31800907087 /* MainWindowController.swift in Sources */,
@@ -435,11 +443,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = NotificationTestBench/NotificationTestBench.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S9HZ7ZUK6L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;
@@ -462,11 +472,13 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = NotificationTestBench/NotificationTestBench.entitlements;
+				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "-";
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S9HZ7ZUK6L;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainNibFile = MainMenu;

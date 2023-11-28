@@ -82,51 +82,56 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     }
 
     public func sendNotification(content: UNNotificationContent) {
-       checkNotificationsAuthorization(callback: { [weak self, content] notificationSettings in
-           guard let self = self else { return }
+        checkNotificationsAuthorization(callback: { [weak self, content] notificationSettings in
+            guard let self = self else { return }
            
-           log("Checking whether notifications are allowed: " +
-               "Badge (\(notificationSettings.alertSetting.toString)), " +
-               "Sound (\(notificationSettings.soundSetting.toString)), " +
-               "Alert (\(notificationSettings.alertSetting.toString)), " +
-               "Critical (\(notificationSettings.criticalAlertSetting.toString)), " +
-               "Time Sensitive (\(notificationSettings.timeSensitiveSetting.toString)).")
+            log("""
+                Checking whether notifications are allowed:
+                Badge (\(notificationSettings.alertSetting.toString)),
+                Sound (\(notificationSettings.soundSetting.toString)),
+                Alert (\(notificationSettings.alertSetting.toString)),
+                Critical (\(notificationSettings.criticalAlertSetting.toString)),
+                Time Sensitive (\(notificationSettings.timeSensitiveSetting.toString)).
+            """)
 		   
-           guard notificationSettings.alertSetting == .enabled || notificationSettings.badgeSetting == .enabled || notificationSettings.soundSetting == .enabled else { return }
-		   log("Attempting to send notification")
+            guard notificationSettings.alertSetting == .enabled || notificationSettings.badgeSetting == .enabled || notificationSettings.soundSetting == .enabled else { return }
+            log("Attempting to send notification")
            
-		   // create a new UNNotificationContent object with fields filled depending on the allowed settings
-           let notificationContent = UNMutableNotificationContent()
-           if notificationSettings.alertSetting == .enabled {
+            // create a new UNNotificationContent object with fields filled depending on the allowed settings
+            let notificationContent = UNMutableNotificationContent()
+            if notificationSettings.alertSetting == .enabled {
                notificationContent.title = content.title
                notificationContent.subtitle = content.subtitle
                notificationContent.body = content.body
                notificationContent.attachments = content.attachments
-           }
-           if notificationSettings.badgeSetting == .enabled {
+            }
+            if notificationSettings.badgeSetting == .enabled {
                notificationContent.badge = content.badge
-           }
-           if notificationSettings.soundSetting == .enabled {
+            }
+            if notificationSettings.soundSetting == .enabled {
                notificationContent.sound = content.sound
-           }
-           
-		   // create a unique ID for the notification
-		   let notificationId = "notification-\(self.notificationIdCounter)"
-		   self.notificationIdCounter += 1
-		   
-		   // create the notification request
-           let notificationRequest = UNNotificationRequest(identifier: notificationId, content: notificationContent, trigger: nil)
-           UNUserNotificationCenter.current().add(notificationRequest, withCompletionHandler: { [weak self, notificationId] error in
-               if let error = error {
-                   log("Error sending notification. Error: \(error.localizedDescription)")
-                   return
-               }
-               
-               log("Notification \"\(notificationId)\" delivered successfully")
-               guard let self = self else { return }
-			   self.deliveredNotifications.append( notificationRequest )
-               NotificationCenter.default.post(name: NSNotification.deliveredNotificationsChanged, object: self)
-           })
+            }
+            if !content.categoryIdentifier.isEmpty {
+                notificationContent.categoryIdentifier = content.categoryIdentifier
+            }
+
+            // create a unique ID for the notification
+            let notificationId = "notification-\(self.notificationIdCounter)"
+            self.notificationIdCounter += 1
+
+            // create the notification request
+            let notificationRequest = UNNotificationRequest(identifier: notificationId, content: notificationContent, trigger: nil)
+            UNUserNotificationCenter.current().add(notificationRequest, withCompletionHandler: { [weak self, notificationId] error in
+                if let error = error {
+                    log("Error sending notification. Error: \(error.localizedDescription)")
+                    return
+                }
+
+                log("Notification \"\(notificationId)\" delivered successfully")
+                guard let self = self else { return }
+                self.deliveredNotifications.append( notificationRequest )
+                NotificationCenter.default.post(name: NSNotification.deliveredNotificationsChanged, object: self)
+            })
        })
    }
     
@@ -151,6 +156,11 @@ class NotificationManager: NSObject, UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler(presentationOptions)
         return
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        print("Selected action \"\(response.actionIdentifier)\" on notification \"\(response.notification.request.identifier)\"")
+        completionHandler()
     }
     
 }

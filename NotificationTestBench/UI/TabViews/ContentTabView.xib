@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="22154" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="22154"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -26,7 +27,7 @@
             <rect key="frame" x="0.0" y="0.0" width="500" height="347"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
             <subviews>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ab6-dR-HaE">
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="ab6-dR-HaE">
                     <rect key="frame" x="18" y="311" width="38" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Title:" id="WRi-uW-G2v">
                         <font key="font" metaFont="systemBold"/>
@@ -34,7 +35,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p9W-bi-dpK">
+                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p9W-bi-dpK">
                     <rect key="frame" x="20" y="282" width="210" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="210" id="gmG-zH-1R1"/>
@@ -45,7 +46,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dma-7g-04f">
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="dma-7g-04f">
                     <rect key="frame" x="268" y="311" width="60" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Subtitle:" id="QVy-D2-oOx">
                         <font key="font" metaFont="systemBold"/>
@@ -53,7 +54,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oa8-jw-0a5">
+                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Oa8-jw-0a5">
                     <rect key="frame" x="270" y="282" width="210" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="210" id="Zx9-8s-qtM"/>
@@ -64,7 +65,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SHd-Cf-o2K">
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="SHd-Cf-o2K">
                     <rect key="frame" x="18" y="246" width="42" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Body:" id="aVJ-j3-VT9">
                         <font key="font" metaFont="systemBold"/>
@@ -75,15 +76,15 @@
                 <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yt0-bG-yHn">
                     <rect key="frame" x="20" y="188" width="460" height="50"/>
                     <clipView key="contentView" id="z7m-Pf-CzB">
-                        <rect key="frame" x="1" y="1" width="458" height="48"/>
+                        <rect key="frame" x="1" y="1" width="443" height="48"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView importsGraphics="NO" richText="NO" verticallyResizable="YES" spellingCorrection="YES" smartInsertDelete="YES" id="b5R-rc-60z">
-                                <rect key="frame" x="0.0" y="0.0" width="451" height="38"/>
+                                <rect key="frame" x="0.0" y="0.0" width="436" height="38"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                <size key="minSize" width="451" height="38"/>
+                                <size key="minSize" width="436" height="38"/>
                                 <size key="maxSize" width="460" height="10000000"/>
                                 <attributedString key="textStorage">
                                     <fragment content="Notification content body">
@@ -107,11 +108,11 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                     <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="0.40000000000000002" horizontal="NO" id="22N-aE-ZSk">
-                        <rect key="frame" x="443" y="5" width="16" height="38"/>
+                        <rect key="frame" x="444" y="5" width="15" height="38"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </scroller>
                 </scrollView>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mb4-NU-P0s">
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="mb4-NU-P0s">
                     <rect key="frame" x="18" y="152" width="50" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Badge:" id="URj-3G-sdp">
                         <font key="font" metaFont="systemBold"/>
@@ -119,7 +120,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rYK-qJ-cRI">
+                <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="rYK-qJ-cRI">
                     <rect key="frame" x="20" y="123" width="50" height="21"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="lTI-ZL-WWK"/>
@@ -134,7 +135,7 @@
                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                     </textFieldCell>
                 </textField>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Fr-8u-4Ek">
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="4Fr-8u-4Ek">
                     <rect key="frame" x="268" y="152" width="50" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Sound:" id="6H9-nF-0x9">
                         <font key="font" metaFont="systemBold"/>
@@ -149,7 +150,7 @@
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
-                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K62-mc-SSa">
+                <textField focusRingType="none" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="K62-mc-SSa">
                     <rect key="frame" x="18" y="87" width="85" height="16"/>
                     <textFieldCell key="cell" lineBreakMode="clipping" title="Attachment:" id="TE3-td-ftn">
                         <font key="font" metaFont="systemBold"/>
@@ -168,21 +169,21 @@
                     </connections>
                 </button>
                 <button identifier="Increment the badge count with each sent notification" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="9d5-We-m8q">
-                    <rect key="frame" x="88" y="124" width="87" height="18"/>
-                    <buttonCell key="cell" type="check" title="Increment" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="o8v-AL-bAA">
+                    <rect key="frame" x="88" y="124" width="121" height="18"/>
+                    <buttonCell key="cell" type="check" title="Auto-increment" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="o8v-AL-bAA">
                         <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                         <font key="font" metaFont="system"/>
                     </buttonCell>
                 </button>
                 <button toolTip="Remove attachment" verticalHuggingPriority="750" horizontalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="maI-hE-5KH">
                     <rect key="frame" x="460" y="61" width="20.5" height="15.5"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="20" id="7P5-ga-GM8"/>
-                    </constraints>
                     <buttonCell key="cell" type="recessed" bezelStyle="recessed" image="xmark.circle.fill" catalog="system" imagePosition="only" alignment="center" state="on" imageScaling="proportionallyDown" inset="2" id="5ot-UI-IqB">
                         <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                         <font key="font" metaFont="systemBold" size="12"/>
                     </buttonCell>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="20" id="7P5-ga-GM8"/>
+                    </constraints>
                     <connections>
                         <action selector="onAttachmentClearButtonClicked:" target="-2" id="2oE-Bt-b1p"/>
                     </connections>

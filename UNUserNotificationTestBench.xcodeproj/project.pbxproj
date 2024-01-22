@@ -59,7 +59,7 @@
 		B63895C328C8B01800B216C4 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		B63A149628C8CE83008593E4 /* HelpPopoverView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HelpPopoverView.xib; sourceTree = "<group>"; };
 		B63A149828C8CF16008593E4 /* HelpPopoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpPopoverViewController.swift; sourceTree = "<group>"; };
-		B6755EA728BCC1EA00907087 /* NotificationTestBench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NotificationTestBench.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B6755EA728BCC1EA00907087 /* UNUserNotificationTestBench.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UNUserNotificationTestBench.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6755EAA28BCC1EA00907087 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B6755EAC28BCC1EC00907087 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B6755EAF28BCC1EC00907087 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				B62FF96928C6488300B921E2 /* .gitignore */,
-				B6755EA928BCC1EA00907087 /* NotificationTestBench */,
+				B6755EA928BCC1EA00907087 /* UNUserNotificationTestBench */,
 				B6755EA828BCC1EA00907087 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -153,12 +153,12 @@
 		B6755EA828BCC1EA00907087 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				B6755EA728BCC1EA00907087 /* NotificationTestBench.app */,
+				B6755EA728BCC1EA00907087 /* UNUserNotificationTestBench.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B6755EA928BCC1EA00907087 /* NotificationTestBench */ = {
+		B6755EA928BCC1EA00907087 /* UNUserNotificationTestBench */ = {
 			isa = PBXGroup;
 			children = (
 				B6755EAA28BCC1EA00907087 /* AppDelegate.swift */,
@@ -167,7 +167,7 @@
 				B67562E928C11F3600907087 /* UI */,
 				B63A14A228C8DDAC008593E4 /* Utils */,
 			);
-			path = NotificationTestBench;
+			path = UNUserNotificationTestBench;
 			sourceTree = "<group>";
 		};
 		B67562E728C1173D00907087 /* Extensions */ = {
@@ -209,9 +209,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		B6755EA628BCC1E900907087 /* NotificationTestBench */ = {
+		B6755EA628BCC1E900907087 /* UNUserNotificationTestBench */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B6755EB428BCC1EC00907087 /* Build configuration list for PBXNativeTarget "NotificationTestBench" */;
+			buildConfigurationList = B6755EB428BCC1EC00907087 /* Build configuration list for PBXNativeTarget "UNUserNotificationTestBench" */;
 			buildPhases = (
 				B6755EA328BCC1E900907087 /* Sources */,
 				B6755EA428BCC1E900907087 /* Frameworks */,
@@ -221,9 +221,9 @@
 			);
 			dependencies = (
 			);
-			name = NotificationTestBench;
+			name = UNUserNotificationTestBench;
 			productName = NotificationTestBench;
-			productReference = B6755EA728BCC1EA00907087 /* NotificationTestBench.app */;
+			productReference = B6755EA728BCC1EA00907087 /* UNUserNotificationTestBench.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -241,7 +241,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B6755EA228BCC1E900907087 /* Build configuration list for PBXProject "NotificationTestBench" */;
+			buildConfigurationList = B6755EA228BCC1E900907087 /* Build configuration list for PBXProject "UNUserNotificationTestBench" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -254,7 +254,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B6755EA628BCC1E900907087 /* NotificationTestBench */,
+				B6755EA628BCC1E900907087 /* UNUserNotificationTestBench */,
 			);
 		};
 /* End PBXProject section */
@@ -498,7 +498,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B6755EA228BCC1E900907087 /* Build configuration list for PBXProject "NotificationTestBench" */ = {
+		B6755EA228BCC1E900907087 /* Build configuration list for PBXProject "UNUserNotificationTestBench" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B6755EB228BCC1EC00907087 /* Debug */,
@@ -507,7 +507,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B6755EB428BCC1EC00907087 /* Build configuration list for PBXNativeTarget "NotificationTestBench" */ = {
+		B6755EB428BCC1EC00907087 /* Build configuration list for PBXNativeTarget "UNUserNotificationTestBench" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B6755EB528BCC1EC00907087 /* Debug */,
